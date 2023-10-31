@@ -1,0 +1,21 @@
+<input class="form-control" type="text" [(ngModel)]="searchText">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of productList$ | search: searchText" >
+            <td>{{item.productId}}</td>
+            <td>{{item.productName}}</td>
+            <td>{{item.categoryName}}</td>
+            <button id="edit" class="btn btn-light" (click)="onEdit(item.productId)">Editar</button>
+            <button class="btn btn-light" (click)="openDialog(item.productId)">Deletar</button>
+        </tr>    
+    </tbody>
+</table>

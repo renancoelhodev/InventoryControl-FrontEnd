@@ -1,24 +1,32 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { ProductsListComponent } from './products-list/products-list.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductsRegisterComponent } from './products-register/products-register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductsRegisterComponent } from './components/products-register/products-register.component';
+import { SearchPipe } from './shared/search-pipe/search.pipe';
+import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ProductsListComponent,
-    ProductsRegisterComponent
+    ProductsRegisterComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatDialogModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

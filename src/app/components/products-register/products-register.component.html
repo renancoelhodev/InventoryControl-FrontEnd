@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="productForm">
+    <div class="form-group">
+        <div *ngIf="editMode">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" formControlName="productId" readonly>
+        </div>
+        <div *ngIf="!editMode">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" formControlName="productId">
+        </div>
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="productName">
+        <br>
+        <label for="name">Category</label>
+        <select formControlName="categoryId">
+            <option *ngFor="let item of categoriesList$" [value]="item.categoryId">
+                {{ item.categoryName }}
+            </option>
+        </select>
+    </div>
+    <button class="btn btn-success">Submit</button>
+</form>
