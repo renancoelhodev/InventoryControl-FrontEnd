@@ -9,7 +9,7 @@ import { ProductsRegisterComponent } from './components/products-register/produc
 import { SearchPipe } from './shared/search-pipe/search.pipe';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-import { HeaderComponent } from './shared/header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [

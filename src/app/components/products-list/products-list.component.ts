@@ -12,22 +12,16 @@ import { Product } from 'src/app/shared/interface/product.interface';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent {
-
   productList$: any;
   searchText = '';
-  constructor(public dialog: MatDialog, private service: ProductServiceService, private router: Router) {
-    
+  constructor(public dialog: MatDialog, private service: ProductServiceService, private router: Router) {  
   }
-  ngOnChange(): void {
-    this.service.getData().subscribe((data) => this.productList$ = data);
-  }
-
+  
   ngOnInit(): void {    
     this.service.getData().subscribe((data) => this.productList$ = data);
   }
 
   deleteProduct(id: number) {
-    console.log(id);
     this.service.deleteProduct(id).subscribe(
       item => {
         this.service.getData().subscribe((data) => this.productList$ = data)        
@@ -36,6 +30,10 @@ export class ProductsListComponent {
         alert("Erro ao deletar produto");
       }
     )
+  }
+
+  ngOnChange(): void {
+    this.service.getData().subscribe((data) => this.productList$ = data);
   }
     
   onEdit(id: number){

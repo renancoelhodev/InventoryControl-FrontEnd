@@ -45,15 +45,11 @@ export class ProductsRegisterComponent {
         this.editMode = false;
       }
     })
-    
-    console.log(this.productEntry);
+      
     this.categoryService.getCategories().subscribe((data) => (this.categoriesList$ = data));
-    
-
   }
 
   onSubmit() {
-    console.log(this.editMode);
     if (!this.editMode) {
       this.service.createProduct(this.productForm.value).subscribe(
         item => {
@@ -65,7 +61,6 @@ export class ProductsRegisterComponent {
       )
     }
     else {
-      console.log('a', this.productForm.value);
       this.service.updateProduct(this.paramId, this.productForm.value).subscribe(
         item => {
           alert("Produto atualizado com sucesso!");
